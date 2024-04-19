@@ -26,12 +26,15 @@ const PopperButton = () => {
   return (
     <div>
       <Button variant="contained" color="primary" onClick={handleClick}>
-        Toggle Popper
+        Popper Button
       </Button>
       <Popper open={open} anchorEl={anchorEl} placement="bottom" transition>
         {() => (
           <Paper className={classes.paper}>
-            <Typography variant="body1">Here's some relevant information.</Typography>
+            <Typography variant="body1">List1</Typography>
+            <Typography variant="body1">List2</Typography>
+            <Typography variant="body1">List3</Typography>
+            <Typography variant="body1">List4</Typography>
           </Paper>
         )}
       </Popper>
