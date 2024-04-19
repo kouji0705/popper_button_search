@@ -32,11 +32,21 @@ export const PopperButton = () => {
     }
   };
 
-  const fetchData = async () => {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-    const jsonData = await response.json();
-    setData(jsonData.slice(0, 10)); // Just an example to limit the data
+//   const fetchData = async () => {
+//     const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+//     const jsonData = await response.json();
+//     setData(jsonData.slice(0, 10)); // Just an example to limit the data
+//   };
+const fetchData = async () => {
+    if (searchText.trim()) {
+      const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${searchText}`);
+      const jsonData = await response.json();
+      setData(jsonData);
+    } else {
+      alert('Please enter a valid userId');
+    }
   };
+
 
   return (
     <div>
