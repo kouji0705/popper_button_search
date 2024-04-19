@@ -1,5 +1,5 @@
 import './App.css'
-import PopperButton from './components/PopperButton'
+import { PopperButton } from './components/PopperButton'
 
 function App() {
 
