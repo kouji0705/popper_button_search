@@ -1,13 +1,14 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import Popper from '@material-ui/core/Popper';
-import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     border: '1px solid',
+    display: 'flex',
+    flexDirection: 'column',
     padding: theme.spacing(1),
     backgroundColor: theme.palette.background.paper,
   },
@@ -31,10 +32,10 @@ const PopperButton = () => {
       <Popper open={open} anchorEl={anchorEl} placement="bottom" transition>
         {() => (
           <Paper className={classes.paper}>
-            <Typography variant="body1">List1</Typography>
-            <Typography variant="body1">List2</Typography>
-            <Typography variant="body1">List3</Typography>
-            <Typography variant="body1">List4</Typography>
+            <Button >List1</Button>
+            <Button >List2</Button>
+            <Button >List3</Button>
+            <Button >List4</Button>
           </Paper>
         )}
       </Popper>
