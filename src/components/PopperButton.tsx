@@ -24,6 +24,14 @@ export const PopperButton = () => {
   const [data, setData] = useState<any[]>([]);
   const [searchText, setSearchText] = useState('');
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const fetchData = async () => {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${searchText}`);
+    const jsonData = await response.json();
+    setData(jsonData);
+  };
+
+
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
       if (searchText) {
@@ -32,13 +40,8 @@ export const PopperButton = () => {
     }, 500); // 500ミリ秒のディレイでAPIコール
 
     return () => clearTimeout(delayDebounce); // コンポーネントアンマウント時にタイマーをクリア
-  }, [searchText]);
+  }, [fetchData, searchText]);
 
-  const fetchData = async () => {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${searchText}`);
-    const jsonData = await response.json();
-    setData(jsonData);
-  };
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
