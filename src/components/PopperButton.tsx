@@ -27,7 +27,6 @@ export const PopperButton = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchData = async () => {
     const url = `https://jsonplaceholder.typicode.com/posts${searchText ? `?userId=${searchText}` : ''}`;
-    // const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${searchText}`);
     const response = await fetch(url);
 
     const jsonData = await response.json();
